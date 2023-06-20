@@ -1,0 +1,20 @@
+{
+  "compilerOptions" : {
+    "module" : "commonjs",
+    "declaration" : true,
+    "maxNodeModuleJsDepth" : 10,
+    "removeComments" : true,
+    "emitDecoratorMetadata" : true,
+    "experimentalDecorators" : true,
+    "allowSyntheticDefaultImports" : true,
+    "target" : "es2017",
+    "sourceMap" : true,
+    "outDir" : "./dist",
+    "baseUrl" : "./",
+    "incremental" : true,
+    "skipLibCheck" : true,
+    "noImplicitAny" : false,
+    "strictNullChecks" : true
+    //    "esModuleInterop" : true
+  }
+}
