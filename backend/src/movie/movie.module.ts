@@ -2,10 +2,9 @@ import { Module } from '@nestjs/common'
 import { TypegooseModule } from 'nestjs-typegoose'
 
 import { UserModel } from '../user/user.model'
-import { GenreController } from './genre.controller'
-import { GenreModel } from './genre.model'
-import { GenreService } from './genre.service'
-import {MovieModule} from "../movie/movie.module";
+import { MovieController } from './movie.controller'
+import { MovieModel } from './movie.model'
+import { MovieService } from './movie.service'
 
 @Module({
     imports: [
@@ -19,15 +18,15 @@ import {MovieModule} from "../movie/movie.module";
         ]),
         TypegooseModule.forFeature([
             {
-                typegooseClass: GenreModel,
+                typegooseClass: MovieModel,
                 schemaOptions: {
-                    collection: 'Genre',
+                    collection: 'Movie',
                 },
             },
         ]),
-        MovieModule,
     ],
-    providers: [GenreService],
-    controllers: [GenreController],
+    controllers: [MovieController],
+    providers: [MovieService],
+    exports: [MovieService],
 })
-export class GenreModule {}
+export class MovieModule {}

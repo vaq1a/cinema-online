@@ -12,6 +12,7 @@ export class FileService {
 
         await ensureDir(uploadFolder)
 
+        // Todo Multiple file uploads with an error
         const res: FileResponse[] = await Promise.all(
             files.map(async file => {
                 await writeFile(`${uploadFolder}/${file.originalname}`, file.buffer)
