@@ -1,0 +1,29 @@
+@use "sass:math";
+
+$vw-base: 1440 !default;
+
+@function convert-to-vw($value, $base-value: $vw-base) {
+    $value: math.div($value, ($base-value * 0.01)) * 1 * 1vw;
+
+    @if $value == 0vw {
+        $value: 0;
+    }
+
+    @return $value;
+}
+
+@function vwcalc($values, $base-value: $vw-base) {
+    $max: length($values);
+
+    @if $max == 1 {
+        @return convert-to-vw(nth($values, 1), $base-value);
+    }
+
+    $vwValues: ();
+
+    @for $i from 1 through $max {
+        $vwValues: append($vwValues, convert-to-vw(nth($values, $i), $base-value));
+    }
+
+    @return $vwValues;
+}

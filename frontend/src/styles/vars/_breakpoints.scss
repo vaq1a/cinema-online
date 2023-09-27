@@ -1,0 +1,19 @@
+@use 'sass:list';
+
+$grid-breakpoints: (
+        xxs: 0,
+        xs: 415px,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1440px,
+        xxxl: 1680px,
+);
+
+// default value
+$vw-base: 1440;
+
+:export {
+  gridBreakpoints: #{list.join((), $grid-breakpoints)};
+}
